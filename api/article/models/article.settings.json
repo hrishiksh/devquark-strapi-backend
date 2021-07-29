@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "name": "Article"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Content": {
+      "type": "richtext",
+      "required": true
+    },
+    "Slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Banner": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "Description": {
+      "type": "text",
+      "required": true
+    },
+    "SeoTitle": {
+      "type": "string",
+      "required": true
+    },
+    "SeoDescription": {
+      "type": "text",
+      "required": true
+    },
+    "SocialTitle": {
+      "type": "string",
+      "required": true
+    },
+    "SocialDescription": {
+      "type": "text",
+      "required": true
+    },
+    "authors": {
+      "via": "articles",
+      "collection": "author"
+    },
+    "categories": {
+      "via": "articles",
+      "collection": "category"
+    }
+  }
+}
